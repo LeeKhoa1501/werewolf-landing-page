@@ -1,0 +1,1087 @@
+<!DOCTYPE html>
+<html lang="vi" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ma Sói | Tiếng Hú Đêm Trăng Máu - EDN Co.</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;0,900;1,700;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body class="font-roboto antialiased selection:bg-red-600 selection:text-white bg-[#030305] text-gray-200 min-h-screen flex flex-col justify-between">
+
+    <!-- HIỆU ỨNG SƯƠNG MÙ NỀN TOÀN CẢNH & KHÍ QUYỂN MA MỊ -->
+    <div class="fixed inset-0 z-[-1] overflow-hidden pointer-events-none">
+        <!-- Ảnh nền mờ ngôi làng & ma sói trong sương đêm -->
+        <div class="absolute inset-0 bg-[url('assets/img/wolf_moon_village.jpg')] bg-cover bg-center opacity-[0.14] mix-blend-screen filter saturate-150"></div>
+        <div class="absolute inset-0 opacity-[0.03] bg-[url('https://www.transparenttextures.com/patterns/stardust.png')] mix-blend-screen"></div>
+        
+        <!-- 2 lớp mây mù sương trôi ngược chiều nhau -->
+        <div class="absolute inset-0 opacity-20 mix-blend-screen bg-[url('https://images.unsplash.com/photo-1509803874385-db7c23652552?q=80&w=1200')] bg-[length:1200px_auto] animate-[fog_60s_linear_infinite]"></div>
+        <div class="absolute inset-0 opacity-15 mix-blend-screen bg-[url('https://images.unsplash.com/photo-1485236715568-ddc5ee6ca227?q=80&w=1200')] bg-[length:1200px_auto] animate-[fog_45s_linear_infinite_reverse]"></div>
+        
+        <!-- Các đốm tàn tro lửa ma mị lơ lửng bốc lên -->
+        <div class="absolute bottom-[-10px] left-[15%] w-2 h-2 rounded-full bg-red-500/70 blur-[1px] animate-ember-1"></div>
+        <div class="absolute bottom-[-10px] left-[35%] w-1.5 h-1.5 rounded-full bg-amber-500/60 blur-[1px] animate-ember-2"></div>
+        <div class="absolute bottom-[-10px] left-[65%] w-2 h-2 rounded-full bg-red-600/70 blur-[1px] animate-ember-3"></div>
+        <div class="absolute bottom-[-10px] left-[85%] w-1.5 h-1.5 rounded-full bg-orange-500/60 blur-[1px] animate-ember-4"></div>
+
+        <!-- Ánh sáng âm u từ trăng máu và bóng tối -->
+        <div class="absolute top-[-20%] left-[-10%] w-[60%] h-[60%] rounded-full bg-red-900/15 blur-[140px] mix-blend-screen animate-[blob_15s_infinite]"></div>
+        <div class="absolute bottom-[-20%] right-[-10%] w-[60%] h-[60%] rounded-full bg-purple-900/15 blur-[150px] mix-blend-screen animate-[blob_20s_infinite_reverse]"></div>
+    </div>
+
+    <!-- NAVBAR ĐIỀU HƯỚNG TỪNG CHỨC NĂNG -->
+    <nav class="fixed w-full top-0 z-50 glass-nav transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- Logo -->
+                <a href="#home" class="flex-shrink-0 flex items-center gap-3 cursor-pointer group">
+                    <img src="assets/img/logo-crest.png" alt="Logo Ma Sói" class="w-11 h-11 rounded-full border border-red-700/60 shadow-[0_0_12px_rgba(220,38,38,0.5)] group-hover:scale-105 transition">
+                    <div class="leading-none">
+                        <span class="font-black text-[22px] tracking-wider text-white block">MA SÓI<span class="text-red-600">.</span></span>
+                        <span class="text-[9px] uppercase tracking-[0.3em] text-gray-500 font-bold">Millers Hollow</span>
+                    </div>
+                </a>
+
+                <!-- Desktop Nav Tabs (Chuyển Giao Diện Từng Chức Năng) -->
+                <div class="hidden lg:flex items-center space-x-8">
+                    <a href="#home" class="nav-link text-red-500 font-black text-[14px] uppercase tracking-wider transition py-2 relative group">
+                        Trang Chủ
+                        <span class="nav-border absolute bottom-0 left-0 w-full h-[2px] bg-red-600 transition-transform origin-left"></span>
+                    </a>
+                    <a href="#rules" class="nav-link text-gray-400 hover:text-white text-[14px] uppercase tracking-wider transition py-2 relative group">
+                        Luật Chơi
+                        <span class="nav-border absolute bottom-0 left-0 w-full h-[2px] bg-red-600 transition-transform origin-left scale-x-0"></span>
+                    </a>
+                    <a href="#characters" class="nav-link text-gray-400 hover:text-white text-[14px] uppercase tracking-wider transition py-2 relative group">
+                        Nhân Vật
+                        <span class="nav-border absolute bottom-0 left-0 w-full h-[2px] bg-red-600 transition-transform origin-left scale-x-0"></span>
+                    </a>
+                    <a href="#community" class="nav-link text-gray-400 hover:text-white text-[14px] uppercase tracking-wider transition py-2 relative group">
+                        Cộng Đồng
+                        <span class="nav-border absolute bottom-0 left-0 w-full h-[2px] bg-red-600 transition-transform origin-left scale-x-0"></span>
+                    </a>
+                    <a href="#team" class="nav-link text-gray-400 hover:text-white text-[14px] uppercase tracking-wider transition py-2 relative group">
+                        Đội Ngũ
+                        <span class="nav-border absolute bottom-0 left-0 w-full h-[2px] bg-red-600 transition-transform origin-left scale-x-0"></span>
+                    </a>
+                </div>
+
+                <!-- Right Action Button -->
+                <div class="hidden sm:block">
+                    <a href="https://werewolf-cardless.vercel.app/" target="_blank" class="bg-red-700 hover:bg-red-600 text-white font-black px-6 py-2.5 rounded-sm text-[12px] uppercase tracking-[0.2em] shadow-[0_0_15px_rgba(220,38,38,0.5)] border border-red-500/50 hover:shadow-[0_0_25px_rgba(220,38,38,0.8)] transition duration-300 inline-flex items-center gap-2">
+                        <span>VÀO LÀNG</span>
+                        <i class="fa-solid fa-moon text-xs"></i>
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="lg:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-gray-300 hover:text-white p-2 text-xl focus:outline-none">
+                        <i class="fa-solid fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-black/95 border-b border-gray-800 px-4 pt-2 pb-6 space-y-3">
+            <a href="#home" class="nav-link block text-red-500 font-bold text-sm uppercase tracking-wider py-2">Trang Chủ</a>
+            <a href="#rules" class="nav-link block text-gray-400 hover:text-white text-sm uppercase tracking-wider py-2">Luật Chơi</a>
+            <a href="#characters" class="nav-link block text-gray-400 hover:text-white text-sm uppercase tracking-wider py-2">Nhân Vật</a>
+            <a href="#community" class="nav-link block text-gray-400 hover:text-white text-sm uppercase tracking-wider py-2">Cộng Đồng</a>
+            <a href="#team" class="nav-link block text-gray-400 hover:text-white text-sm uppercase tracking-wider py-2">Đội Ngũ</a>
+            <div class="pt-2">
+                <a href="https://werewolf-cardless.vercel.app/" target="_blank" class="block text-center bg-red-700 text-white font-bold py-3 rounded text-xs uppercase tracking-widest">VÀO LÀNG NGAY</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- CONTAINER CHỨA CÁC GIAO DIỆN (CHUYỂN TABS/VIEWS) -->
+    <main class="flex-grow pt-20">
+
+        <!-- ========================================== -->
+        <!-- 1. GIAO DIỆN: TRANG CHỦ (VIEW HOME)       -->
+        <!-- ========================================== -->
+        <div id="view-home" class="page-view animate-fade">
+            <!-- BANNER TRÀN MÀN HÌNH (FULLSCREEN HERO) -->
+            <section class="relative min-h-[92vh] h-[92vh] w-full flex items-center justify-center overflow-hidden border-b border-gray-900">
+                <!-- Slideshow nền tràn màn hình: Sói dưới trăng máu & Làng trong đêm mây mù -->
+                <div class="absolute inset-0 z-0 bg-[#030305]">
+                    <!-- Slide 1: Sói trên mỏm đá dưới đêm trăng máu nhìn xuống làng mờ mây sương (KIỆT TÁC CHÍNH) -->
+                    <div class="hero-slide absolute inset-0 bg-[url('assets/img/wolf_moon_village.jpg')] bg-cover bg-center opacity-70 transition-all duration-[2500ms] transform scale-105"></div>
+                    <!-- Slide 2: Con đường làng cổ kính đêm trăng ngập tràn sương mù mờ ảo -->
+                    <div class="hero-slide absolute inset-0 bg-[url('assets/img/village_mist_moon.jpg')] bg-cover bg-center opacity-0 transition-all duration-[2500ms] transform scale-100"></div>
+                    <!-- Slide 3: Ma sói gầm rú nhe nanh giữa rừng sâu -->
+                    <div class="hero-slide absolute inset-0 bg-[url('assets/img/wolf_banner.jpg')] bg-cover bg-center opacity-0 transition-all duration-[2500ms] transform scale-100"></div>
+                    
+                    <!-- Lớp mây trôi bồng bềnh ngang bầu trời (Cloud Drift Animation) -->
+                    <div class="absolute inset-0 opacity-20 mix-blend-screen bg-[url('https://images.unsplash.com/photo-1509803874385-db7c23652552?q=80&w=1200')] bg-[length:1100px_auto] animate-cloud-drift pointer-events-none"></div>
+
+                    <!-- Quầng hào quang đỏ trăng máu thở nhịp nhàng (Moon Glow Pulse) -->
+                    <div class="absolute top-[8%] right-[22%] w-[420px] h-[420px] rounded-full bg-red-600/25 blur-[120px] animate-moon-pulse pointer-events-none"></div>
+
+                    <!-- Lớp phủ ma mị & Tối góc (Vignette) -->
+                    <div class="absolute inset-0 bg-black/45 z-10"></div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-[#030305] via-transparent to-black/80 z-10"></div>
+                    <div class="absolute inset-0 bg-gradient-to-r from-[#030305]/95 via-[#030305]/25 to-[#030305]/95 z-10"></div>
+                </div>
+
+                <!-- Nội dung Banner trung tâm -->
+                <div class="max-w-5xl mx-auto px-4 relative z-20 text-center flex flex-col items-center justify-center">
+                    <p class="text-red-500 font-black tracking-[0.35em] uppercase text-xs md:text-sm mb-4 inline-flex items-center gap-3 drop-shadow-md">
+                        <span class="w-8 h-[2px] bg-red-600 inline-block"></span>
+                        KHI MÀN ĐÊM BUÔNG XUỐNG MILLERS HOLLOW
+                        <span class="w-8 h-[2px] bg-red-600 inline-block"></span>
+                    </p>
+
+                    <h1 class="text-white text-5xl sm:text-7xl md:text-8xl font-black uppercase italic tracking-wider leading-none mb-6 drop-shadow-[0_10px_25px_rgba(0,0,0,0.9)]">
+                        TIẾNG HÚ TRONG <br/>
+                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-red-600 via-red-500 to-amber-500 drop-shadow-[0_0_40px_rgba(220,38,38,0.9)]">
+                            ĐÊM TRĂNG MÁU
+                        </span>
+                    </h1>
+
+                    <p class="text-gray-300 text-base sm:text-lg md:text-xl max-w-3xl font-light leading-relaxed mb-10 drop-shadow-md">
+                        Sương mù giăng kín lối, tiếng hú xé toạc màn đêm u ám. Ai là người mang bộ mặt dân làng lương thiện, ai là dã thú khát máu chực chờ nuốt trọn linh hồn bạn? Hãy tỉnh táo trước khi bình minh ló rạng.
+                    </p>
+
+                    <!-- Nút CTA duy nhất chuẩn yêu cầu -->
+                    <div class="flex items-center justify-center">
+                        <a href="https://werewolf-cardless.vercel.app/" target="_blank" class="group relative inline-flex items-center gap-4 bg-red-700 hover:bg-red-600 text-white font-black py-4 px-10 rounded-sm text-sm sm:text-base uppercase tracking-[0.25em] shadow-[0_0_30px_rgba(220,38,38,0.7)] border border-red-500/60 hover:shadow-[0_0_50px_rgba(220,38,38,1)] hover:scale-105 transition-all duration-300">
+                            <span>Vào làng để trải nghiệm</span>
+                            <i class="fa-solid fa-arrow-right group-hover:translate-x-1.5 transition-transform duration-300"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Nút chỉ hướng cuộn nhẹ nhàng -->
+                <div class="absolute bottom-6 left-1/2 transform -translate-x-1/2 z-20 text-center opacity-60 hover:opacity-100 transition">
+                    <a href="#features-preview" class="text-xs text-gray-400 uppercase tracking-widest flex flex-col items-center gap-2">
+                        <span>Khám Phá Bản Nâng Cấp</span>
+                        <i class="fa-solid fa-chevron-down animate-bounce text-red-500"></i>
+                    </a>
+                </div>
+            </section>
+
+            <!-- TÍNH NĂNG NỔI BẬT DƯỚI BANNER -->
+            <section id="features-preview" class="py-24 bg-[#050508] border-b border-gray-900 relative">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="text-center mb-16">
+                        <p class="text-red-500 text-xs font-bold uppercase tracking-[0.3em] mb-2">Đột Phá Trải Nghiệm</p>
+                        <h2 class="text-3xl md:text-4xl font-black uppercase text-white tracking-wider">Cuộc Cách Mạng <span class="text-red-600">Ma Sói Không Dùng Bài</span></h2>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+                        <div class="bg-[#0a0a0f] border border-gray-800/80 p-8 rounded-xl hover:border-red-600/50 transition duration-300 group">
+                            <div class="w-14 h-14 rounded-lg bg-red-900/20 border border-red-700/40 flex items-center justify-center mb-6 group-hover:scale-110 transition">
+                                <i class="fa-solid fa-mobile-screen-button text-red-500 text-2xl"></i>
+                            </div>
+                            <h3 class="text-white font-bold text-xl uppercase mb-3 tracking-wide">Điện Thoại Là Lá Bài</h3>
+                            <p class="text-gray-400 text-sm leading-relaxed">Mỗi người chơi thao tác trực tiếp trên màn hình, xem vai bí mật, nhận thông báo đêm và vote độc lập không sợ lộ cử động tay chân.</p>
+                        </div>
+
+                        <div class="bg-[#0a0a0f] border border-gray-800/80 p-8 rounded-xl hover:border-red-600/50 transition duration-300 group">
+                            <div class="w-14 h-14 rounded-lg bg-red-900/20 border border-red-700/40 flex items-center justify-center mb-6 group-hover:scale-110 transition">
+                                <i class="fa-solid fa-film text-red-500 text-2xl"></i>
+                            </div>
+                            <h3 class="text-white font-bold text-xl uppercase mb-3 tracking-wide">Trải Nghiệm Điện Ảnh</h3>
+                            <p class="text-gray-400 text-sm leading-relaxed">Âm thanh rùng rợn, hiệu ứng sương mù và chuyển cảnh mượt mà đưa bạn đắm chìm vào bầu không khí u ám ngột ngạt của Millers Hollow.</p>
+                        </div>
+
+                        <div class="bg-[#0a0a0f] border border-gray-800/80 p-8 rounded-xl hover:border-red-600/50 transition duration-300 group">
+                            <div class="w-14 h-14 rounded-lg bg-red-900/20 border border-red-700/40 flex items-center justify-center mb-6 group-hover:scale-110 transition">
+                                <i class="fa-solid fa-brain text-red-500 text-2xl"></i>
+                            </div>
+                            <h3 class="text-white font-bold text-xl uppercase mb-3 tracking-wide">Trợ Lý Quản Trò Tự Động</h3>
+                            <p class="text-gray-400 text-sm leading-relaxed">Máy chủ tự động tính toán logic cắn, cứu, soi và đếm phiếu vote chính xác 100%. Không bao giờ còn tình trạng quản trò nhầm lẫn làm hỏng ván đấu.</p>
+                        </div>
+                    </div>
+
+                    <!-- Shortcut chuyển sang các giao diện khác -->
+                    <div class="mt-16 text-center flex flex-wrap justify-center gap-4">
+                        <a href="#rules" class="border border-gray-700 hover:border-white text-gray-300 hover:text-white px-6 py-3 rounded text-xs uppercase font-bold tracking-widest transition">Xem Luật Chơi Chi Tiết</a>
+                        <a href="#characters" class="border border-red-800/70 hover:border-red-500 text-red-400 hover:text-white px-6 py-3 rounded text-xs uppercase font-bold tracking-widest transition">Khám Phá 12+ Lá Bài</a>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+
+        <!-- ========================================== -->
+        <!-- 2. GIAO DIỆN: LUẬT CHƠI (VIEW RULES)      -->
+        <!-- ========================================== -->
+        <div id="view-rules" class="page-view hidden animate-fade">
+            <section class="py-16 md:py-24 max-w-6xl mx-auto px-4 sm:px-6">
+                <!-- Tiêu đề trang Luật Chơi -->
+                <div class="text-center mb-16">
+                    <p class="text-red-500 text-xs font-bold uppercase tracking-[0.35em] mb-2">Cẩm Nang Sinh Tồn</p>
+                    <h1 class="text-4xl md:text-5xl font-black uppercase text-white tracking-wider">Luật Chơi <span class="text-red-600">Millers Hollow</span></h1>
+                    <p class="text-gray-400 text-base max-w-2xl mx-auto mt-4">Nắm vững quy tắc ngày & đêm để không bị bầy sói đưa lên giàn thiêu hay lừa gạt trong bóng tối.</p>
+                </div>
+
+                <!-- 4 Giai đoạn trò chơi -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+                    <div class="bg-[#0a0a0f] border border-gray-800 p-8 rounded-2xl relative overflow-hidden group hover:border-red-700/60 transition">
+                        <span class="text-6xl font-black text-gray-800/40 absolute top-4 right-6 group-hover:text-red-900/30 transition">01</span>
+                        <div class="w-12 h-12 rounded-full bg-blue-950/40 border border-blue-600/40 flex items-center justify-center text-blue-400 text-xl mb-6">
+                            <i class="fa-solid fa-moon"></i>
+                        </div>
+                        <h3 class="text-2xl font-black text-white uppercase mb-3">Màn Đêm Buông Xuống</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed mb-4">Toàn bộ dân làng ngủ say. Hệ thống sẽ lần lượt gọi các nhân vật đặc biệt thức giấc:</p>
+                        <ul class="text-xs text-gray-300 space-y-2">
+                            <li><strong class="text-red-500">• Bầy Sói:</strong> Thức dậy cùng nhau, thống nhất chọn 1 nạn nhân xấu số để cắn.</li>
+                            <li><strong class="text-blue-400">• Tiên Tri:</strong> Chọn 1 người để soi danh tính thật sự.</li>
+                            <li><strong class="text-purple-400">• Phù Thủy:</strong> Quyết định dùng bình cứu người hoặc dùng bình độc giết người.</li>
+                            <li><strong class="text-green-400">• Bảo Vệ:</strong> Chọn 1 người bất kỳ để che chắn khỏi nanh vuốt sói.</li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-[#0a0a0f] border border-gray-800 p-8 rounded-2xl relative overflow-hidden group hover:border-red-700/60 transition">
+                        <span class="text-6xl font-black text-gray-800/40 absolute top-4 right-6 group-hover:text-red-900/30 transition">02</span>
+                        <div class="w-12 h-12 rounded-full bg-amber-950/40 border border-amber-600/40 flex items-center justify-center text-amber-400 text-xl mb-6">
+                            <i class="fa-solid fa-sun"></i>
+                        </div>
+                        <h3 class="text-2xl font-black text-white uppercase mb-3">Bình Minh Thức Giấc</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed mb-4">Mặt trời lên xua tan sương mù. Quản trò công bố danh tính người bị hạ sát đêm qua:</p>
+                        <ul class="text-xs text-gray-300 space-y-2">
+                            <li>• Người chết sẽ biến thành linh hồn và không được phép trò chuyện hay vote.</li>
+                            <li>• Nếu Thợ Săn chết, có quyền kích hoạt súng bắn chết thêm 1 người bất kỳ.</li>
+                            <li>• Những người còn sống bắt đầu tranh luận, tìm kiếm sơ hở và nghi phạm.</li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-[#0a0a0f] border border-gray-800 p-8 rounded-2xl relative overflow-hidden group hover:border-red-700/60 transition">
+                        <span class="text-6xl font-black text-gray-800/40 absolute top-4 right-6 group-hover:text-red-900/30 transition">03</span>
+                        <div class="w-12 h-12 rounded-full bg-red-950/40 border border-red-600/40 flex items-center justify-center text-red-500 text-xl mb-6">
+                            <i class="fa-solid fa-gavel"></i>
+                        </div>
+                        <h3 class="text-2xl font-black text-white uppercase mb-3">Biểu Quyết Treo Cổ</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed mb-4">Cả làng cùng nhau biểu quyết trên màn hình điện thoại:</p>
+                        <ul class="text-xs text-gray-300 space-y-2">
+                            <li>• Người có số phiếu bầu cao nhất sẽ bị đưa lên giàn treo cổ.</li>
+                            <li>• Nếu số phiếu hòa nhau, làng sẽ không treo cổ ai trong ngày hôm đó.</li>
+                            <li>• Kẻ bị treo cổ có quyền nói lời trăn trối cuối cùng trước khi lìa đời.</li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-[#0a0a0f] border border-gray-800 p-8 rounded-2xl relative overflow-hidden group hover:border-red-700/60 transition">
+                        <span class="text-6xl font-black text-gray-800/40 absolute top-4 right-6 group-hover:text-red-900/30 transition">04</span>
+                        <div class="w-12 h-12 rounded-full bg-yellow-950/40 border border-yellow-600/40 flex items-center justify-center text-yellow-400 text-xl mb-6">
+                            <i class="fa-solid fa-trophy"></i>
+                        </div>
+                        <h3 class="text-2xl font-black text-white uppercase mb-3">Điều Kiện Thắng</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed mb-4">Ván chơi lặp lại vòng lặp Ngày - Đêm cho đến khi đạt điều kiện:</p>
+                        <ul class="text-xs text-gray-300 space-y-2">
+                            <li><strong class="text-blue-400">• Phe Dân Làng thắng:</strong> Tiêu diệt sạch sẽ tất cả Ma Sói.</li>
+                            <li><strong class="text-red-500">• Phe Ma Sói thắng:</strong> Số lượng Sói bằng hoặc nhiều hơn số người làng còn sống.</li>
+                            <li><strong class="text-purple-400">• Phe Thứ 3 (Cặp đôi Cupid, Kẻ Ngốc...):</strong> Thắng khi đạt điều kiện độc lập riêng biệt.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Box bí kíp -->
+                <div class="p-8 rounded-2xl bg-gradient-to-r from-red-950/40 via-black to-red-950/40 border border-red-900/50 text-center">
+                    <h4 class="text-xl font-black text-white uppercase mb-2">Lời Khuyên Cốt Tử Cho Người Mới</h4>
+                    <p class="text-gray-400 text-sm max-w-2xl mx-auto">"Không bao giờ để lộ vai trò thật trừ phi đó là nước cờ quyết định số phận ván đấu. Trong thế giới của Ma Sói, người nói thật nhất đôi khi lại là kẻ dối trá nhất!"</p>
+                </div>
+            </section>
+        </div>
+
+
+        <!-- ========================================== -->
+        <!-- 3. GIAO DIỆN: NHÂN VẬT & LẬT BÀI 3D        -->
+        <!-- ========================================== -->
+        <div id="view-characters" class="page-view hidden animate-fade">
+            <section class="py-16 md:py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <!-- Tiêu đề trang Nhân Vật -->
+                <div class="text-center mb-12">
+                    <p class="text-red-500 text-xs font-bold uppercase tracking-[0.35em] mb-2">Kho Tàng Nhân Vật</p>
+                    <h1 class="text-4xl md:text-5xl font-black uppercase text-white tracking-wider">Danh Sách <span class="text-red-600">Lá Bài Sinh Tử</span></h1>
+                    <p class="text-gray-400 text-base max-w-2xl mx-auto mt-4">
+                        <i class="fa-solid fa-hand-pointer text-red-500 mr-2"></i> Rê chuột để lật mở mặt trước lá bài. Nhấp vào lá bài để xem chi tiết năng lực bí mật!
+                    </p>
+                </div>
+
+                <!-- Tabs lọc phe phái -->
+                <div class="flex flex-wrap justify-center gap-3 mb-14">
+                    <button class="filter-btn active bg-red-700 text-white border-red-600 px-6 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider transition border shadow-[0_0_15px_rgba(220,38,38,0.4)]" data-filter="all">
+                        Tất Cả Vai Trò
+                    </button>
+                    <button class="filter-btn text-gray-400 border-gray-800 hover:border-blue-500 hover:text-blue-400 px-6 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider transition border bg-black/40" data-filter="phe-dan">
+                        Phe Dân Làng
+                    </button>
+                    <button class="filter-btn text-gray-400 border-gray-800 hover:border-red-600 hover:text-red-400 px-6 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider transition border bg-black/40" data-filter="phe-soi">
+                        Phe Ma Sói
+                    </button>
+                    <button class="filter-btn text-gray-400 border-gray-800 hover:border-purple-600 hover:text-purple-400 px-6 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider transition border bg-black/40" data-filter="phe-thu-3">
+                        Phe Thứ 3
+                    </button>
+                </div>
+
+                <!-- GRID CÁC LÁ BÀI 3D FLIP EFFECT -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+
+                    <!-- 1. SÓI PHÁP SƯ -->
+                    <div class="character-card-item card-flip-container h-[420px] cursor-pointer group" data-faction="phe-soi" onclick="openCharacterModal('Sói Pháp Sư', 'Werewolf Shaman', 'assets/img/wolf_shaman.jpg', 'Mỗi đêm thức dậy cùng đàn sói để cắn 1 người. Ngoài ra có thể yểm bùa phong tỏa năng lực của 1 người bất kỳ trong đêm hôm đó.', 'Phe Ma Sói', 'bg-red-950/80 text-red-400 border border-red-600', 'border-red-600')">
+                        <div class="card-flip-inner">
+                            <!-- Mặt ÚP (Card Back) -->
+                            <div class="card-face-front bg-[#0a0a0f] border-2 border-red-900/60 shadow-2xl relative">
+                                <img src="assets/img/card_back.jpg" alt="Mặt úp lá bài" class="w-full h-full object-cover filter contrast-125 brightness-90">
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/40"></div>
+                                <div class="absolute bottom-4 inset-x-0 text-center">
+                                    <span class="text-[11px] uppercase tracking-[0.25em] text-red-500/90 font-bold bg-black/70 px-3 py-1 rounded border border-red-900/50">Rê chuột để lật</span>
+                                </div>
+                            </div>
+                            <!-- Mặt NGỬA (Character Reveal) -->
+                            <div class="card-face-back bg-[#08080c] border-2 border-red-600 shadow-[0_0_25px_rgba(220,38,38,0.4)] flex flex-col justify-between p-4">
+                                <div class="relative h-[280px] rounded-lg overflow-hidden border border-gray-800">
+                                    <img src="assets/img/wolf_shaman.jpg" alt="Sói Pháp Sư" class="w-full h-full object-cover">
+                                    <div class="absolute top-2 right-2 bg-red-950/90 text-red-400 font-bold text-[10px] px-2 py-0.5 rounded border border-red-600 uppercase">Phe Sói</div>
+                                </div>
+                                <div class="text-center py-2">
+                                    <h3 class="text-white font-black text-xl uppercase tracking-wider mb-1">Sói Pháp Sư</h3>
+                                    <p class="text-red-500 text-xs font-bold uppercase tracking-widest">The Werewolf Shaman</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 2. TIÊN TRI -->
+                    <div class="character-card-item card-flip-container h-[420px] cursor-pointer group" data-faction="phe-dan" onclick="openCharacterModal('Tiên Tri', 'The Seer', 'assets/img/seer.jpg', 'Mỗi đêm, Tiên Tri được chỉ định 1 người chơi để soi xem người đó thuộc phe Sói hay phe Dân Làng. Là linh hồn dẫn dắt làng tìm ra chân tướng.', 'Phe Dân Làng', 'bg-blue-950/80 text-blue-400 border border-blue-600', 'border-blue-500')">
+                        <div class="card-flip-inner">
+                            <div class="card-face-front bg-[#0a0a0f] border-2 border-blue-900/60 shadow-2xl relative">
+                                <img src="assets/img/card_back.jpg" alt="Mặt úp lá bài" class="w-full h-full object-cover filter contrast-125 brightness-90">
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/40"></div>
+                                <div class="absolute bottom-4 inset-x-0 text-center">
+                                    <span class="text-[11px] uppercase tracking-[0.25em] text-blue-400/90 font-bold bg-black/70 px-3 py-1 rounded border border-blue-900/50">Rê chuột để lật</span>
+                                </div>
+                            </div>
+                            <div class="card-face-back bg-[#08080c] border-2 border-blue-500 shadow-[0_0_25px_rgba(59,130,246,0.3)] flex flex-col justify-between p-4">
+                                <div class="relative h-[280px] rounded-lg overflow-hidden border border-gray-800">
+                                    <img src="assets/img/seer.jpg" alt="Tiên Tri" class="w-full h-full object-cover">
+                                    <div class="absolute top-2 right-2 bg-blue-950/90 text-blue-400 font-bold text-[10px] px-2 py-0.5 rounded border border-blue-600 uppercase">Phe Dân</div>
+                                </div>
+                                <div class="text-center py-2">
+                                    <h3 class="text-white font-black text-xl uppercase tracking-wider mb-1">Tiên Tri</h3>
+                                    <p class="text-blue-400 text-xs font-bold uppercase tracking-widest">The Seer</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 3. PHÙ THỦY -->
+                    <div class="character-card-item card-flip-container h-[420px] cursor-pointer group" data-faction="phe-dan" onclick="openCharacterModal('Phù Thủy', 'The Witch', 'assets/img/witch.jpg', 'Sở hữu 2 bình thuốc ma thuật đầy quyền năng: 1 bình thuốc hồi sinh người bị cắn trong đêm và 1 bình độc để hạ sát 1 kẻ đáng ngờ.', 'Phe Dân Làng', 'bg-blue-950/80 text-blue-400 border border-blue-600', 'border-blue-500')">
+                        <div class="card-flip-inner">
+                            <div class="card-face-front bg-[#0a0a0f] border-2 border-blue-900/60 shadow-2xl relative">
+                                <img src="assets/img/card_back.jpg" alt="Mặt úp lá bài" class="w-full h-full object-cover filter contrast-125 brightness-90">
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/40"></div>
+                                <div class="absolute bottom-4 inset-x-0 text-center">
+                                    <span class="text-[11px] uppercase tracking-[0.25em] text-blue-400/90 font-bold bg-black/70 px-3 py-1 rounded border border-blue-900/50">Rê chuột để lật</span>
+                                </div>
+                            </div>
+                            <div class="card-face-back bg-[#08080c] border-2 border-blue-500 shadow-[0_0_25px_rgba(59,130,246,0.3)] flex flex-col justify-between p-4">
+                                <div class="relative h-[280px] rounded-lg overflow-hidden border border-gray-800">
+                                    <img src="assets/img/witch.jpg" alt="Phù Thủy" class="w-full h-full object-cover">
+                                    <div class="absolute top-2 right-2 bg-blue-950/90 text-blue-400 font-bold text-[10px] px-2 py-0.5 rounded border border-blue-600 uppercase">Phe Dân</div>
+                                </div>
+                                <div class="text-center py-2">
+                                    <h3 class="text-white font-black text-xl uppercase tracking-wider mb-1">Phù Thủy</h3>
+                                    <p class="text-blue-400 text-xs font-bold uppercase tracking-widest">The Witch</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 4. BẢO VỆ -->
+                    <div class="character-card-item card-flip-container h-[420px] cursor-pointer group" data-faction="phe-dan" onclick="openCharacterModal('Bảo Vệ', 'The Bodyguard', 'assets/img/guard.jpg', 'Mỗi đêm chọn 1 người để bảo vệ khỏi nanh vuốt sói. Không được bảo vệ cùng 1 người trong hai đêm liên tiếp.', 'Phe Dân Làng', 'bg-blue-950/80 text-blue-400 border border-blue-600', 'border-blue-500')">
+                        <div class="card-flip-inner">
+                            <div class="card-face-front bg-[#0a0a0f] border-2 border-blue-900/60 shadow-2xl relative">
+                                <img src="assets/img/card_back.jpg" alt="Mặt úp lá bài" class="w-full h-full object-cover filter contrast-125 brightness-90">
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/40"></div>
+                                <div class="absolute bottom-4 inset-x-0 text-center">
+                                    <span class="text-[11px] uppercase tracking-[0.25em] text-blue-400/90 font-bold bg-black/70 px-3 py-1 rounded border border-blue-900/50">Rê chuột để lật</span>
+                                </div>
+                            </div>
+                            <div class="card-face-back bg-[#08080c] border-2 border-blue-500 shadow-[0_0_25px_rgba(59,130,246,0.3)] flex flex-col justify-between p-4">
+                                <div class="relative h-[280px] rounded-lg overflow-hidden border border-gray-800">
+                                    <img src="assets/img/guard.jpg" alt="Bảo Vệ" class="w-full h-full object-cover">
+                                    <div class="absolute top-2 right-2 bg-blue-950/90 text-blue-400 font-bold text-[10px] px-2 py-0.5 rounded border border-blue-600 uppercase">Phe Dân</div>
+                                </div>
+                                <div class="text-center py-2">
+                                    <h3 class="text-white font-black text-xl uppercase tracking-wider mb-1">Bảo Vệ</h3>
+                                    <p class="text-blue-400 text-xs font-bold uppercase tracking-widest">The Bodyguard</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 5. THỢ SĂN -->
+                    <div class="character-card-item card-flip-container h-[420px] cursor-pointer group" data-faction="phe-dan" onclick="openCharacterModal('Thợ Săn', 'The Hunter', 'assets/img/hunter.jpg', 'Khi chết (dù do Sói cắn hay bị dân làng vote treo cổ), Thợ Săn có quyền nổ súng bắn kéo theo 1 người bất kỳ chết cùng.', 'Phe Dân Làng', 'bg-blue-950/80 text-blue-400 border border-blue-600', 'border-blue-500')">
+                        <div class="card-flip-inner">
+                            <div class="card-face-front bg-[#0a0a0f] border-2 border-blue-900/60 shadow-2xl relative">
+                                <img src="assets/img/card_back.jpg" alt="Mặt úp lá bài" class="w-full h-full object-cover filter contrast-125 brightness-90">
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/40"></div>
+                                <div class="absolute bottom-4 inset-x-0 text-center">
+                                    <span class="text-[11px] uppercase tracking-[0.25em] text-blue-400/90 font-bold bg-black/70 px-3 py-1 rounded border border-blue-900/50">Rê chuột để lật</span>
+                                </div>
+                            </div>
+                            <div class="card-face-back bg-[#08080c] border-2 border-blue-500 shadow-[0_0_25px_rgba(59,130,246,0.3)] flex flex-col justify-between p-4">
+                                <div class="relative h-[280px] rounded-lg overflow-hidden border border-gray-800">
+                                    <img src="assets/img/hunter.jpg" alt="Thợ Săn" class="w-full h-full object-cover">
+                                    <div class="absolute top-2 right-2 bg-blue-950/90 text-blue-400 font-bold text-[10px] px-2 py-0.5 rounded border border-blue-600 uppercase">Phe Dân</div>
+                                </div>
+                                <div class="text-center py-2">
+                                    <h3 class="text-white font-black text-xl uppercase tracking-wider mb-1">Thợ Săn</h3>
+                                    <p class="text-blue-400 text-xs font-bold uppercase tracking-widest">The Hunter</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 6. MA SÓI THƯỜNG -->
+                    <div class="character-card-item card-flip-container h-[420px] cursor-pointer group" data-faction="phe-soi" onclick="openCharacterModal('Ma Sói', 'The Werewolf', 'assets/img/wolf.jpg', 'Thức giấc mỗi đêm cùng bầy đàn để tiêu diệt dân làng. Ban ngày ẩn náu, giả vờ ngây thơ và lèo lái dư luận treo cổ người vô tội.', 'Phe Ma Sói', 'bg-red-950/80 text-red-400 border border-red-600', 'border-red-600')">
+                        <div class="card-flip-inner">
+                            <div class="card-face-front bg-[#0a0a0f] border-2 border-red-900/60 shadow-2xl relative">
+                                <img src="assets/img/card_back.jpg" alt="Mặt úp lá bài" class="w-full h-full object-cover filter contrast-125 brightness-90">
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/40"></div>
+                                <div class="absolute bottom-4 inset-x-0 text-center">
+                                    <span class="text-[11px] uppercase tracking-[0.25em] text-red-500/90 font-bold bg-black/70 px-3 py-1 rounded border border-red-900/50">Rê chuột để lật</span>
+                                </div>
+                            </div>
+                            <div class="card-face-back bg-[#08080c] border-2 border-red-600 shadow-[0_0_25px_rgba(220,38,38,0.4)] flex flex-col justify-between p-4">
+                                <div class="relative h-[280px] rounded-lg overflow-hidden border border-gray-800">
+                                    <img src="assets/img/wolf.jpg" alt="Ma Sói" class="w-full h-full object-cover">
+                                    <div class="absolute top-2 right-2 bg-red-950/90 text-red-400 font-bold text-[10px] px-2 py-0.5 rounded border border-red-600 uppercase">Phe Sói</div>
+                                </div>
+                                <div class="text-center py-2">
+                                    <h3 class="text-white font-black text-xl uppercase tracking-wider mb-1">Ma Sói</h3>
+                                    <p class="text-red-500 text-xs font-bold uppercase tracking-widest">The Werewolf</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 7. THẦN TÌNH YÊU (CUPID) -->
+                    <div class="character-card-item card-flip-container h-[420px] cursor-pointer group" data-faction="phe-thu-3" onclick="openCharacterModal('Thần Tình Yêu', 'Cupid', 'assets/img/cupid.jpg', 'Đêm đầu tiên thức dậy ghép đôi 2 người chơi thành cặp tình nhân định mệnh. Nếu 1 trong 2 người chết, người kia sẽ tự sát chết theo.', 'Phe Thứ 3', 'bg-purple-950/80 text-purple-400 border border-purple-600', 'border-purple-500')">
+                        <div class="card-flip-inner">
+                            <div class="card-face-front bg-[#0a0a0f] border-2 border-purple-900/60 shadow-2xl relative">
+                                <img src="assets/img/card_back.jpg" alt="Mặt úp lá bài" class="w-full h-full object-cover filter contrast-125 brightness-90">
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/40"></div>
+                                <div class="absolute bottom-4 inset-x-0 text-center">
+                                    <span class="text-[11px] uppercase tracking-[0.25em] text-purple-400/90 font-bold bg-black/70 px-3 py-1 rounded border border-purple-900/50">Rê chuột để lật</span>
+                                </div>
+                            </div>
+                            <div class="card-face-back bg-[#08080c] border-2 border-purple-500 shadow-[0_0_25px_rgba(168,85,247,0.3)] flex flex-col justify-between p-4">
+                                <div class="relative h-[280px] rounded-lg overflow-hidden border border-gray-800">
+                                    <img src="assets/img/cupid.jpg" alt="Cupid" class="w-full h-full object-cover">
+                                    <div class="absolute top-2 right-2 bg-purple-950/90 text-purple-400 font-bold text-[10px] px-2 py-0.5 rounded border border-purple-600 uppercase">Phe Thứ 3</div>
+                                </div>
+                                <div class="text-center py-2">
+                                    <h3 class="text-white font-black text-xl uppercase tracking-wider mb-1">Thần Tình Yêu</h3>
+                                    <p class="text-purple-400 text-xs font-bold uppercase tracking-widest">Cupid</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 8. KẺ NGỐC -->
+                    <div class="character-card-item card-flip-container h-[420px] cursor-pointer group" data-faction="phe-dan" onclick="openCharacterModal('Kẻ Ngốc', 'The Fool', 'assets/img/fool.jpg', 'Nếu bị làng vote treo cổ vào ban ngày, Kẻ Ngốc lật bài chứng minh thân phận và không bị chết, nhưng sẽ bị tước quyền vote trong các ngày sau.', 'Phe Dân Làng', 'bg-blue-950/80 text-blue-400 border border-blue-600', 'border-blue-500')">
+                        <div class="card-flip-inner">
+                            <div class="card-face-front bg-[#0a0a0f] border-2 border-blue-900/60 shadow-2xl relative">
+                                <img src="assets/img/card_back.jpg" alt="Mặt úp lá bài" class="w-full h-full object-cover filter contrast-125 brightness-90">
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/40"></div>
+                                <div class="absolute bottom-4 inset-x-0 text-center">
+                                    <span class="text-[11px] uppercase tracking-[0.25em] text-blue-400/90 font-bold bg-black/70 px-3 py-1 rounded border border-blue-900/50">Rê chuột để lật</span>
+                                </div>
+                            </div>
+                            <div class="card-face-back bg-[#08080c] border-2 border-blue-500 shadow-[0_0_25px_rgba(59,130,246,0.3)] flex flex-col justify-between p-4">
+                                <div class="relative h-[280px] rounded-lg overflow-hidden border border-gray-800">
+                                    <img src="assets/img/fool.jpg" alt="Kẻ Ngốc" class="w-full h-full object-cover">
+                                    <div class="absolute top-2 right-2 bg-blue-950/90 text-blue-400 font-bold text-[10px] px-2 py-0.5 rounded border border-blue-600 uppercase">Phe Dân</div>
+                                </div>
+                                <div class="text-center py-2">
+                                    <h3 class="text-white font-black text-xl uppercase tracking-wider mb-1">Kẻ Ngốc</h3>
+                                    <p class="text-blue-400 text-xs font-bold uppercase tracking-widest">The Fool</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 9. SÓI NGUYỀN -->
+                    <div class="character-card-item card-flip-container h-[420px] cursor-pointer group" data-faction="phe-soi" onclick="openCharacterModal('Sói Nguyền', 'The Cursed Wolf', 'assets/img/The_Cursed_Wolf.png', 'Mang trong mình tà thuật hắc ám cổ xưa. Sói Nguyền có thể yểm lời nguyền lên 1 người chơi. Khi nạn nhân này chết, linh hồn sẽ bị tha hóa thành Ma Sói gia nhập bầy đàn.', 'Phe Ma Sói', 'bg-red-950/80 text-red-400 border border-red-600', 'border-red-600')">
+                        <div class="card-flip-inner">
+                            <div class="card-face-front bg-[#0a0a0f] border-2 border-red-900/60 shadow-2xl relative">
+                                <img src="assets/img/card_back.jpg" alt="Mặt úp lá bài" class="w-full h-full object-cover filter contrast-125 brightness-90">
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/40"></div>
+                                <div class="absolute bottom-4 inset-x-0 text-center">
+                                    <span class="text-[11px] uppercase tracking-[0.25em] text-red-500/90 font-bold bg-black/70 px-3 py-1 rounded border border-red-900/50">Rê chuột để lật</span>
+                                </div>
+                            </div>
+                            <div class="card-face-back bg-[#08080c] border-2 border-red-600 shadow-[0_0_25px_rgba(220,38,38,0.4)] flex flex-col justify-between p-4">
+                                <div class="relative h-[280px] rounded-lg overflow-hidden border border-gray-800 bg-black">
+                                    <img src="assets/img/The_Cursed_Wolf.png" alt="Sói Nguyền" class="w-full h-full object-cover object-top">
+                                    <div class="absolute top-2 right-2 bg-red-950/90 text-red-400 font-bold text-[10px] px-2 py-0.5 rounded border border-red-600 uppercase">Phe Sói</div>
+                                </div>
+                                <div class="text-center py-2">
+                                    <h3 class="text-white font-black text-xl uppercase tracking-wider mb-1 truncate">Sói Nguyền</h3>
+                                    <p class="text-red-500 text-xs font-bold uppercase tracking-widest truncate">The Cursed Wolf</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 10. SÓI SÁT THỦ -->
+                    <div class="character-card-item card-flip-container h-[420px] cursor-pointer group" data-faction="phe-soi" onclick="openCharacterModal('Sói Sát Thủ', 'Assassin Wolf', 'assets/img/Assasin_wolf.png', 'Kẻ săn mồi thoắt ẩn thoắt hiện trong đêm u tối. Mỗi hai đêm có quyền ám sát độc lập 1 người mà Tiên Tri không thể soi ra vết tích sói.', 'Phe Ma Sói', 'bg-red-950/80 text-red-400 border border-red-600', 'border-red-600')">
+                        <div class="card-flip-inner">
+                            <div class="card-face-front bg-[#0a0a0f] border-2 border-red-900/60 shadow-2xl relative">
+                                <img src="assets/img/card_back.jpg" alt="Mặt úp lá bài" class="w-full h-full object-cover filter contrast-125 brightness-90">
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/40"></div>
+                                <div class="absolute bottom-4 inset-x-0 text-center">
+                                    <span class="text-[11px] uppercase tracking-[0.25em] text-red-500/90 font-bold bg-black/70 px-3 py-1 rounded border border-red-900/50">Rê chuột để lật</span>
+                                </div>
+                            </div>
+                            <div class="card-face-back bg-[#08080c] border-2 border-red-600 shadow-[0_0_25px_rgba(220,38,38,0.4)] flex flex-col justify-between p-4">
+                                <div class="relative h-[280px] rounded-lg overflow-hidden border border-gray-800 bg-black">
+                                    <img src="assets/img/Assasin_wolf.png" alt="Sói Sát Thủ" class="w-full h-full object-cover object-top">
+                                    <div class="absolute top-2 right-2 bg-red-950/90 text-red-400 font-bold text-[10px] px-2 py-0.5 rounded border border-red-600 uppercase">Phe Sói</div>
+                                </div>
+                                <div class="text-center py-2">
+                                    <h3 class="text-white font-black text-xl uppercase tracking-wider mb-1 truncate">Sói Sát Thủ</h3>
+                                    <p class="text-red-500 text-xs font-bold uppercase tracking-widest truncate">Assassin Wolf</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 11. TIÊN TRI TOÀN NĂNG -->
+                    <div class="character-card-item card-flip-container h-[420px] cursor-pointer group" data-faction="phe-dan" onclick="openCharacterModal('Tiên Tri Toàn Năng', 'Omniscient Seer', 'assets/img/Omniscient_Seer.png', 'Bậc thầy thấu thị tối thượng. Không chỉ soi chính xác vai trò cụ thể của mục tiêu mỗi đêm, mà còn có 1 lần thức giấc nhìn thấu phe phái đang chiếm ưu thế.', 'Phe Dân Làng', 'bg-blue-950/80 text-blue-400 border border-blue-600', 'border-blue-500')">
+                        <div class="card-flip-inner">
+                            <div class="card-face-front bg-[#0a0a0f] border-2 border-blue-900/60 shadow-2xl relative">
+                                <img src="assets/img/card_back.jpg" alt="Mặt úp lá bài" class="w-full h-full object-cover filter contrast-125 brightness-90">
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/40"></div>
+                                <div class="absolute bottom-4 inset-x-0 text-center">
+                                    <span class="text-[11px] uppercase tracking-[0.25em] text-blue-400/90 font-bold bg-black/70 px-3 py-1 rounded border border-blue-900/50">Rê chuột để lật</span>
+                                </div>
+                            </div>
+                            <div class="card-face-back bg-[#08080c] border-2 border-blue-500 shadow-[0_0_25px_rgba(59,130,246,0.3)] flex flex-col justify-between p-4">
+                                <div class="relative h-[280px] rounded-lg overflow-hidden border border-gray-800 bg-black">
+                                    <img src="assets/img/Omniscient_Seer.png" alt="Tiên Tri Toàn Năng" class="w-full h-full object-cover object-top">
+                                    <div class="absolute top-2 right-2 bg-blue-950/90 text-blue-400 font-bold text-[10px] px-2 py-0.5 rounded border border-blue-600 uppercase">Phe Dân</div>
+                                </div>
+                                <div class="text-center py-2">
+                                    <h3 class="text-white font-black text-xl uppercase tracking-wider mb-1 truncate">Tiên Tri Toàn Năng</h3>
+                                    <p class="text-blue-400 text-xs font-bold uppercase tracking-widest truncate">Omniscient Seer</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 12. PHÙ THỦY TỐI THƯỢNG -->
+                    <div class="character-card-item card-flip-container h-[420px] cursor-pointer group" data-faction="phe-dan" onclick="openCharacterModal('Phù Thủy Tối Thượng', 'Supreme Witch', 'assets/img/Supreme_Witch.png', 'Bậc thầy luyện độc và hồi sinh. Sở hữu 3 bình dược thảo: Cứu sinh, Độc dược và Bình Thanh Tẩy vô hiệu hóa toàn bộ tà thuật của bầy sói trong 1 đêm.', 'Phe Dân Làng', 'bg-blue-950/80 text-blue-400 border border-blue-600', 'border-blue-500')">
+                        <div class="card-flip-inner">
+                            <div class="card-face-front bg-[#0a0a0f] border-2 border-blue-900/60 shadow-2xl relative">
+                                <img src="assets/img/card_back.jpg" alt="Mặt úp lá bài" class="w-full h-full object-cover filter contrast-125 brightness-90">
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/40"></div>
+                                <div class="absolute bottom-4 inset-x-0 text-center">
+                                    <span class="text-[11px] uppercase tracking-[0.25em] text-blue-400/90 font-bold bg-black/70 px-3 py-1 rounded border border-blue-900/50">Rê chuột để lật</span>
+                                </div>
+                            </div>
+                            <div class="card-face-back bg-[#08080c] border-2 border-blue-500 shadow-[0_0_25px_rgba(59,130,246,0.3)] flex flex-col justify-between p-4">
+                                <div class="relative h-[280px] rounded-lg overflow-hidden border border-gray-800 bg-black">
+                                    <img src="assets/img/Supreme_Witch.png" alt="Phù Thủy Tối Thượng" class="w-full h-full object-cover object-top">
+                                    <div class="absolute top-2 right-2 bg-blue-950/90 text-blue-400 font-bold text-[10px] px-2 py-0.5 rounded border border-blue-600 uppercase">Phe Dân</div>
+                                </div>
+                                <div class="text-center py-2">
+                                    <h3 class="text-white font-black text-xl uppercase tracking-wider mb-1 truncate">Phù Thủy Tối Thượng</h3>
+                                    <p class="text-blue-400 text-xs font-bold uppercase tracking-widest truncate">Supreme Witch</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 13. THỢ SĂN HÀNG LOẠT -->
+                    <div class="character-card-item card-flip-container h-[420px] cursor-pointer group" data-faction="phe-dan" onclick="openCharacterModal('Thợ Săn Hàng Loạt', 'Serial Hunter', 'assets/img/Serial_Hunter.png', 'Thợ săn thiện xạ cuồng nộ. Khi chết trong đêm hoặc bị dân làng treo cổ, có thể xả đạn bắn hạ kéo theo tới 2 người chơi khác cùng lìa đời.', 'Phe Dân Làng', 'bg-blue-950/80 text-blue-400 border border-blue-600', 'border-blue-500')">
+                        <div class="card-flip-inner">
+                            <div class="card-face-front bg-[#0a0a0f] border-2 border-blue-900/60 shadow-2xl relative">
+                                <img src="assets/img/card_back.jpg" alt="Mặt úp lá bài" class="w-full h-full object-cover filter contrast-125 brightness-90">
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/40"></div>
+                                <div class="absolute bottom-4 inset-x-0 text-center">
+                                    <span class="text-[11px] uppercase tracking-[0.25em] text-blue-400/90 font-bold bg-black/70 px-3 py-1 rounded border border-blue-900/50">Rê chuột để lật</span>
+                                </div>
+                            </div>
+                            <div class="card-face-back bg-[#08080c] border-2 border-blue-500 shadow-[0_0_25px_rgba(59,130,246,0.3)] flex flex-col justify-between p-4">
+                                <div class="relative h-[280px] rounded-lg overflow-hidden border border-gray-800 bg-black">
+                                    <img src="assets/img/Serial_Hunter.png" alt="Thợ Săn Hàng Loạt" class="w-full h-full object-cover object-top">
+                                    <div class="absolute top-2 right-2 bg-blue-950/90 text-blue-400 font-bold text-[10px] px-2 py-0.5 rounded border border-blue-600 uppercase">Phe Dân</div>
+                                </div>
+                                <div class="text-center py-2">
+                                    <h3 class="text-white font-black text-xl uppercase tracking-wider mb-1 truncate">Thợ Săn Hàng Loạt</h3>
+                                    <p class="text-blue-400 text-xs font-bold uppercase tracking-widest truncate">Serial Hunter</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 14. THỢ SĂN TIỀN THƯỞNG -->
+                    <div class="character-card-item card-flip-container h-[420px] cursor-pointer group" data-faction="phe-dan" onclick="openCharacterModal('Thợ Săn Tiền Thưởng', 'Bounty Hunter', 'assets/img/Bounty_Hunter.png', 'Đầu trận được hệ thống giao 1 mục tiêu bí mật. Khi mục tiêu bị loại bỏ, Thợ Săn Tiền Thưởng nhận được tấm khiên hộ mệnh bảo vệ bản thân suốt trận đấu.', 'Phe Dân Làng', 'bg-blue-950/80 text-blue-400 border border-blue-600', 'border-blue-500')">
+                        <div class="card-flip-inner">
+                            <div class="card-face-front bg-[#0a0a0f] border-2 border-blue-900/60 shadow-2xl relative">
+                                <img src="assets/img/card_back.jpg" alt="Mặt úp lá bài" class="w-full h-full object-cover filter contrast-125 brightness-90">
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/40"></div>
+                                <div class="absolute bottom-4 inset-x-0 text-center">
+                                    <span class="text-[11px] uppercase tracking-[0.25em] text-blue-400/90 font-bold bg-black/70 px-3 py-1 rounded border border-blue-900/50">Rê chuột để lật</span>
+                                </div>
+                            </div>
+                            <div class="card-face-back bg-[#08080c] border-2 border-blue-500 shadow-[0_0_25px_rgba(59,130,246,0.3)] flex flex-col justify-between p-4">
+                                <div class="relative h-[280px] rounded-lg overflow-hidden border border-gray-800 bg-black">
+                                    <img src="assets/img/Bounty_Hunter.png" alt="Thợ Săn Tiền Thưởng" class="w-full h-full object-cover object-top">
+                                    <div class="absolute top-2 right-2 bg-blue-950/90 text-blue-400 font-bold text-[10px] px-2 py-0.5 rounded border border-blue-600 uppercase">Phe Dân</div>
+                                </div>
+                                <div class="text-center py-2">
+                                    <h3 class="text-white font-black text-xl uppercase tracking-wider mb-1 truncate">Thợ Săn Tiền Thưởng</h3>
+                                    <p class="text-blue-400 text-xs font-bold uppercase tracking-widest truncate">Bounty Hunter</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 15. KẺ BẤT TỬ -->
+                    <div class="character-card-item card-flip-container h-[420px] cursor-pointer group" data-faction="phe-dan" onclick="openCharacterModal('Kẻ Bất Tử', 'The Immortal', 'assets/img/Immortal.png', 'Sở hữu thần lực bất hoại. Miễn nhiễm hoàn toàn với nhát cắn đầu tiên của bầy Ma Sói vào ban đêm. Tuy nhiên vẫn có thể bị dân làng biểu quyết treo cổ vào ban ngày.', 'Phe Dân Làng', 'bg-blue-950/80 text-blue-400 border border-blue-600', 'border-blue-500')">
+                        <div class="card-flip-inner">
+                            <div class="card-face-front bg-[#0a0a0f] border-2 border-blue-900/60 shadow-2xl relative">
+                                <img src="assets/img/card_back.jpg" alt="Mặt úp lá bài" class="w-full h-full object-cover filter contrast-125 brightness-90">
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/40"></div>
+                                <div class="absolute bottom-4 inset-x-0 text-center">
+                                    <span class="text-[11px] uppercase tracking-[0.25em] text-blue-400/90 font-bold bg-black/70 px-3 py-1 rounded border border-blue-900/50">Rê chuột để lật</span>
+                                </div>
+                            </div>
+                            <div class="card-face-back bg-[#08080c] border-2 border-blue-500 shadow-[0_0_25px_rgba(59,130,246,0.3)] flex flex-col justify-between p-4">
+                                <div class="relative h-[280px] rounded-lg overflow-hidden border border-gray-800 bg-black">
+                                    <img src="assets/img/Immortal.png" alt="Kẻ Bất Tử" class="w-full h-full object-cover object-top">
+                                    <div class="absolute top-2 right-2 bg-blue-950/90 text-blue-400 font-bold text-[10px] px-2 py-0.5 rounded border border-blue-600 uppercase">Phe Dân</div>
+                                </div>
+                                <div class="text-center py-2">
+                                    <h3 class="text-white font-black text-xl uppercase tracking-wider mb-1 truncate">Kẻ Bất Tử</h3>
+                                    <p class="text-blue-400 text-xs font-bold uppercase tracking-widest truncate">The Immortal</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 16. KẺ BỊ NGUYỀN -->
+                    <div class="character-card-item card-flip-container h-[420px] cursor-pointer group" data-faction="phe-dan" onclick="openCharacterModal('Kẻ Bị Nguyền', 'The Cursed One', 'assets/img/Cursed_One.png', 'Ban đầu là dân làng vô tội. Nếu bị bầy Ma Sói cắn trong đêm, kẻ bị nguyền không chết mà bản năng dã thú trỗi dậy và gia nhập bầy sói từ đêm hôm sau.', 'Phe Dân / Phe Sói', 'bg-amber-950/80 text-amber-400 border border-amber-600', 'border-amber-500')">
+                        <div class="card-flip-inner">
+                            <div class="card-face-front bg-[#0a0a0f] border-2 border-amber-900/60 shadow-2xl relative">
+                                <img src="assets/img/card_back.jpg" alt="Mặt úp lá bài" class="w-full h-full object-cover filter contrast-125 brightness-90">
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/40"></div>
+                                <div class="absolute bottom-4 inset-x-0 text-center">
+                                    <span class="text-[11px] uppercase tracking-[0.25em] text-amber-400/90 font-bold bg-black/70 px-3 py-1 rounded border border-amber-900/50">Rê chuột để lật</span>
+                                </div>
+                            </div>
+                            <div class="card-face-back bg-[#08080c] border-2 border-amber-500 shadow-[0_0_25px_rgba(245,158,11,0.3)] flex flex-col justify-between p-4">
+                                <div class="relative h-[280px] rounded-lg overflow-hidden border border-gray-800 bg-black">
+                                    <img src="assets/img/Cursed_One.png" alt="Kẻ Bị Nguyền" class="w-full h-full object-cover object-top">
+                                    <div class="absolute top-2 right-2 bg-amber-950/90 text-amber-400 font-bold text-[10px] px-2 py-0.5 rounded border border-amber-600 uppercase">Dân / Sói</div>
+                                </div>
+                                <div class="text-center py-2">
+                                    <h3 class="text-white font-black text-xl uppercase tracking-wider mb-1 truncate">Kẻ Bị Nguyền</h3>
+                                    <p class="text-amber-400 text-xs font-bold uppercase tracking-widest truncate">The Cursed One</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 17. MA VƯƠNG -->
+                    <div class="character-card-item card-flip-container h-[420px] cursor-pointer group" data-faction="phe-thu-3" onclick="openCharacterModal('Ma Vương', 'The Demon Lord', 'assets/img/The_Demon_Lord.png', 'Chúa tể bóng tối cổ xưa trỗi dậy. Độc lập tác chiến, mỗi đêm gieo rắc ấn ký ma vương. Thắng ván đấu khi tiêu diệt toàn bộ cả Dân Làng lẫn bầy Ma Sói.', 'Phe Thứ 3', 'bg-purple-950/80 text-purple-400 border border-purple-600', 'border-purple-500')">
+                        <div class="card-flip-inner">
+                            <div class="card-face-front bg-[#0a0a0f] border-2 border-purple-900/60 shadow-2xl relative">
+                                <img src="assets/img/card_back.jpg" alt="Mặt úp lá bài" class="w-full h-full object-cover filter contrast-125 brightness-90">
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/40"></div>
+                                <div class="absolute bottom-4 inset-x-0 text-center">
+                                    <span class="text-[11px] uppercase tracking-[0.25em] text-purple-400/90 font-bold bg-black/70 px-3 py-1 rounded border border-purple-900/50">Rê chuột để lật</span>
+                                </div>
+                            </div>
+                            <div class="card-face-back bg-[#08080c] border-2 border-purple-500 shadow-[0_0_25px_rgba(168,85,247,0.3)] flex flex-col justify-between p-4">
+                                <div class="relative h-[280px] rounded-lg overflow-hidden border border-gray-800 bg-black">
+                                    <img src="assets/img/The_Demon_Lord.png" alt="Ma Vương" class="w-full h-full object-cover object-top">
+                                    <div class="absolute top-2 right-2 bg-purple-950/90 text-purple-400 font-bold text-[10px] px-2 py-0.5 rounded border border-purple-600 uppercase">Phe Thứ 3</div>
+                                </div>
+                                <div class="text-center py-2">
+                                    <h3 class="text-white font-black text-xl uppercase tracking-wider mb-1 truncate">Ma Vương</h3>
+                                    <p class="text-purple-400 text-xs font-bold uppercase tracking-widest truncate">The Demon Lord</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 18. THẦN CHẾT -->
+                    <div class="character-card-item card-flip-container h-[420px] cursor-pointer group" data-faction="phe-thu-3" onclick="openCharacterModal('Thần Chết', 'The Grim Reaper', 'assets/img/The_Grim_Reaper.png', 'Sứ giả cõi âm mang lưỡi hái linh hồn. Mỗi đêm chỉ định 1 linh hồn thu hoạch. Thắng ván đấu khi thu hoạch đủ số linh hồn theo khế ước định mệnh.', 'Phe Thứ 3', 'bg-purple-950/80 text-purple-400 border border-purple-600', 'border-purple-500')">
+                        <div class="card-flip-inner">
+                            <div class="card-face-front bg-[#0a0a0f] border-2 border-purple-900/60 shadow-2xl relative">
+                                <img src="assets/img/card_back.jpg" alt="Mặt úp lá bài" class="w-full h-full object-cover filter contrast-125 brightness-90">
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/40"></div>
+                                <div class="absolute bottom-4 inset-x-0 text-center">
+                                    <span class="text-[11px] uppercase tracking-[0.25em] text-purple-400/90 font-bold bg-black/70 px-3 py-1 rounded border border-purple-900/50">Rê chuột để lật</span>
+                                </div>
+                            </div>
+                            <div class="card-face-back bg-[#08080c] border-2 border-purple-500 shadow-[0_0_25px_rgba(168,85,247,0.3)] flex flex-col justify-between p-4">
+                                <div class="relative h-[280px] rounded-lg overflow-hidden border border-gray-800 bg-black">
+                                    <img src="assets/img/The_Grim_Reaper.png" alt="Thần Chết" class="w-full h-full object-cover object-top">
+                                    <div class="absolute top-2 right-2 bg-purple-950/90 text-purple-400 font-bold text-[10px] px-2 py-0.5 rounded border border-purple-600 uppercase">Phe Thứ 3</div>
+                                </div>
+                                <div class="text-center py-2">
+                                    <h3 class="text-white font-black text-xl uppercase tracking-wider mb-1 truncate">Thần Chết</h3>
+                                    <p class="text-purple-400 text-xs font-bold uppercase tracking-widest truncate">The Grim Reaper</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 19. BẠO CHÚA -->
+                    <div class="character-card-item card-flip-container h-[420px] cursor-pointer group" data-faction="phe-thu-3" onclick="openCharacterModal('Bạo Chúa', 'The Tyrant', 'assets/img/The_Tyrant.png', 'Kẻ thao túng quyền lực tối cao. Sở hữu 2 lá phiếu vote ban ngày và có quyền ép toàn bộ dân làng phải biểu quyết theo ý mình một lần duy nhất trong trận đấu.', 'Phe Thứ 3', 'bg-purple-950/80 text-purple-400 border border-purple-600', 'border-purple-500')">
+                        <div class="card-flip-inner">
+                            <div class="card-face-front bg-[#0a0a0f] border-2 border-purple-900/60 shadow-2xl relative">
+                                <img src="assets/img/card_back.jpg" alt="Mặt úp lá bài" class="w-full h-full object-cover filter contrast-125 brightness-90">
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/40"></div>
+                                <div class="absolute bottom-4 inset-x-0 text-center">
+                                    <span class="text-[11px] uppercase tracking-[0.25em] text-purple-400/90 font-bold bg-black/70 px-3 py-1 rounded border border-purple-900/50">Rê chuột để lật</span>
+                                </div>
+                            </div>
+                            <div class="card-face-back bg-[#08080c] border-2 border-purple-500 shadow-[0_0_25px_rgba(168,85,247,0.3)] flex flex-col justify-between p-4">
+                                <div class="relative h-[280px] rounded-lg overflow-hidden border border-gray-800 bg-black">
+                                    <img src="assets/img/The_Tyrant.png" alt="Bạo Chúa" class="w-full h-full object-cover object-top">
+                                    <div class="absolute top-2 right-2 bg-purple-950/90 text-purple-400 font-bold text-[10px] px-2 py-0.5 rounded border border-purple-600 uppercase">Phe Thứ 3</div>
+                                </div>
+                                <div class="text-center py-2">
+                                    <h3 class="text-white font-black text-xl uppercase tracking-wider mb-1 truncate">Bạo Chúa</h3>
+                                    <p class="text-purple-400 text-xs font-bold uppercase tracking-widest truncate">The Tyrant</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+        </div>
+
+
+        <!-- ========================================== -->
+        <!-- 4. GIAO DIỆN: CỘNG ĐỒNG (VIEW COMMUNITY)  -->
+        <!-- ========================================== -->
+        <div id="view-community" class="page-view hidden animate-fade">
+            <section class="py-16 md:py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <p class="text-red-500 text-xs font-bold uppercase tracking-[0.35em] mb-2">Độc Quyền JChat</p>
+                    <h1 class="text-4xl md:text-5xl font-black uppercase text-white tracking-wider">Cộng Đồng <span class="text-red-600">Săn Đêm</span></h1>
+                    <p class="text-gray-400 text-base max-w-2xl mx-auto mt-4">Không cần cài đặt phức tạp. Chỉ cần một đường link mời, tạo phòng và chơi ngay cùng hội bạn thân!</p>
+                </div>
+
+                <!-- Video Tutorial Placeholder & Card -->
+                <div class="grid lg:grid-cols-2 gap-12 items-center mb-20">
+                    <div class="text-left">
+                        <span class="bg-red-900/40 text-red-400 border border-red-700/50 px-3 py-1 rounded text-xs uppercase font-bold tracking-widest inline-block mb-4">SSO Đăng Nhập Nhanh</span>
+                        <h2 class="text-3xl md:text-4xl font-black text-white uppercase mb-6 leading-tight">Kết Nối Bạn Bè Trong Chớp Mắt</h2>
+                        <p class="text-gray-300 text-base leading-relaxed mb-6">
+                            Hệ thống tích hợp trực tiếp nền tảng giao tiếp JChat. Bạn có thể chia sẻ phòng chơi qua nhóm chat, mời bạn bè vào ván chỉ với 1 cú click và xem lại toàn bộ nhật ký biểu quyết của từng ván.
+                        </p>
+                        <div class="space-y-4 mb-8">
+                            <div class="flex items-center gap-3 text-sm text-gray-300">
+                                <i class="fa-solid fa-circle-check text-green-500 text-lg"></i>
+                                <span>Tự động đồng bộ tên và avatar từ tài khoản</span>
+                            </div>
+                            <div class="flex items-center gap-3 text-sm text-gray-300">
+                                <i class="fa-solid fa-circle-check text-green-500 text-lg"></i>
+                                <span>Phòng chơi bảo mật, mã hóa không sợ nghe lén</span>
+                            </div>
+                            <div class="flex items-center gap-3 text-sm text-gray-300">
+                                <i class="fa-solid fa-circle-check text-green-500 text-lg"></i>
+                                <span>Bảng xếp hạng chiến tích & vinh danh MVP mỗi tuần</span>
+                            </div>
+                        </div>
+                        <a href="https://werewolf-cardless.vercel.app/" target="_blank" class="bg-red-700 hover:bg-red-600 text-white font-bold py-3.5 px-8 rounded uppercase text-xs tracking-widest inline-block transition shadow-[0_0_20px_rgba(220,38,38,0.5)]">Tạo Phòng Chơi Ngay</a>
+                    </div>
+
+                    <!-- Box Video Hướng Dẫn -->
+                    <div class="relative">
+                        <div class="aspect-video bg-black/90 border-2 border-red-900/60 rounded-2xl flex flex-col items-center justify-center p-8 relative overflow-hidden group shadow-2xl">
+                            <div class="absolute inset-0 bg-gradient-to-tr from-red-950/30 to-purple-950/30"></div>
+                            <div class="w-20 h-20 rounded-full bg-red-700/80 group-hover:bg-red-600 flex items-center justify-center text-white text-3xl shadow-[0_0_30px_rgba(220,38,38,0.8)] group-hover:scale-110 transition duration-300 relative z-10 cursor-pointer mb-4">
+                                <i class="fa-solid fa-play ml-1"></i>
+                            </div>
+                            <h4 class="text-white font-black text-xl uppercase tracking-wider relative z-10">Đoạn Phim Hướng Dẫn Ván Đấu</h4>
+                            <p class="text-gray-400 text-xs mt-2 relative z-10 text-center">Bấm để xem video mô phỏng trận đấu 12 người trên JChat</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Đăng ký nhận tin tức mới -->
+                <div class="p-10 rounded-2xl bg-[#0a0a0f] border border-gray-800 text-center max-w-3xl mx-auto">
+                    <h3 class="text-2xl font-black text-white uppercase tracking-wider mb-2">Đăng Ký Nhận Thông Báo Bản Cập Nhật</h3>
+                    <p class="text-gray-400 text-sm mb-6">Để lại email để nhận thông báo mỗi khi có vai trò mới hoặc mở giải đấu Ma Sói.</p>
+                    <form class="flex flex-col sm:flex-row gap-3 max-w-md mx-auto" onsubmit="event.preventDefault(); alert('Cảm ơn bạn đã đăng ký!');">
+                        <input type="email" placeholder="Nhập địa chỉ email của bạn..." required class="flex-1 bg-black border border-gray-700 px-4 py-3 rounded text-sm text-white focus:outline-none focus:border-red-600">
+                        <button type="submit" class="bg-red-700 hover:bg-red-600 text-white font-bold px-6 py-3 rounded text-xs uppercase tracking-widest transition">Đăng Ký</button>
+                    </form>
+                </div>
+            </section>
+        </div>
+
+
+        <!-- ========================================== -->
+        <!-- 5. GIAO DIỆN: ĐỘI NGŨ & CUỐN PHIM CHẾ TÁC  -->
+        <!-- ========================================== -->
+        <div id="view-team" class="page-view hidden animate-fade">
+            <section class="py-16 md:py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <!-- Tiêu đề trang Đội Ngũ -->
+                <div class="text-center mb-16">
+                    <p class="text-red-500 text-xs font-bold uppercase tracking-[0.35em] mb-2">Những Con Người Đứng Sau</p>
+                    <h1 class="text-4xl md:text-5xl font-black uppercase text-white tracking-wider">Đội Ngũ Phát Triển <span class="text-red-600">EDN Co.</span></h1>
+                    <p class="text-gray-400 text-base max-w-2xl mx-auto mt-4">Tập hợp những cá nhân đam mê sáng tạo, đưa trải nghiệm Ma Sói lên một tầm cao mới.</p>
+                </div>
+
+                <!-- 2 Thành viên nòng cốt phát triển: Lê Thành Đạo & Lê Minh Khoa -->
+                <div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 mb-24">
+                    <!-- Dev: Lê Thành Đạo -->
+                    <div class="bg-[#0a0a0f] border border-gray-800 rounded-2xl p-8 text-center group hover:border-blue-500 transition duration-300 shadow-xl">
+                        <div class="w-32 h-32 mx-auto rounded-full overflow-hidden mb-6 border-2 border-blue-500 p-1 shadow-[0_0_25px_rgba(59,130,246,0.35)] bg-blue-950/40 flex items-center justify-center">
+                            <i class="fa-solid fa-code text-blue-400 text-5xl group-hover:scale-110 transition duration-300"></i>
+                        </div>
+                        <h3 class="text-white font-black text-2xl uppercase mb-1">Lê Thành Đạo</h3>
+                        <p class="text-blue-400 text-xs font-bold uppercase tracking-widest mb-4">Lập Trình Viên (DEV) & Kiến Trúc Sư Hệ Thống</p>
+                        <p class="text-gray-400 text-sm leading-relaxed">Xây dựng máy chủ xử lý phòng chơi thời gian thực, thuật toán tự động hóa Quản Trò, quản lý logic trận đấu và tối ưu độ trễ mạng.</p>
+                    </div>
+
+                    <!-- UI/UX: Lê Minh Khoa -->
+                    <div class="bg-[#0a0a0f] border border-gray-800 rounded-2xl p-8 text-center group hover:border-purple-500 transition duration-300 shadow-xl">
+                        <div class="w-32 h-32 mx-auto rounded-full overflow-hidden mb-6 border-2 border-purple-500 p-1 shadow-[0_0_25px_rgba(168,85,247,0.35)]">
+                            <img src="assets/img/minh-khoa.jpg" alt="Lê Minh Khoa" class="w-full h-full object-cover rounded-full grayscale group-hover:grayscale-0 transition duration-500">
+                        </div>
+                        <h3 class="text-white font-black text-2xl uppercase mb-1">Lê Minh Khoa</h3>
+                        <p class="text-purple-400 text-xs font-bold uppercase tracking-widest mb-4">Thiết Kế UI/UX & Giám Đốc Mỹ Thuật</p>
+                        <p class="text-gray-400 text-sm leading-relaxed">Sáng tạo phong cách Dark Fantasy huyền bí, thiết kế hệ thống 19+ lá bài sinh tử lật 3D và kiến tạo trải nghiệm tương tác người dùng đỉnh cao.</p>
+                    </div>
+                </div>
+
+                <!-- ĐOẠN PHIM NGẮN GIỚI THIỆU: CUỐN PHIM CHẾ TÁC (HOLLYWOOD CREDIT ROLL) -->
+                <div class="relative bg-black rounded-3xl border border-red-950/80 p-6 md:p-12 overflow-hidden shadow-[0_0_60px_rgba(0,0,0,0.9)]">
+                    <!-- Khung phim chiếu rạp với 2 dải film bên lề -->
+                    <div class="absolute left-3 md:left-8 top-0 bottom-0 w-6 flex flex-col justify-around opacity-20 pointer-events-none">
+                        <div class="w-3 h-5 bg-white/40 rounded-sm"></div><div class="w-3 h-5 bg-white/40 rounded-sm"></div><div class="w-3 h-5 bg-white/40 rounded-sm"></div><div class="w-3 h-5 bg-white/40 rounded-sm"></div><div class="w-3 h-5 bg-white/40 rounded-sm"></div><div class="w-3 h-5 bg-white/40 rounded-sm"></div><div class="w-3 h-5 bg-white/40 rounded-sm"></div><div class="w-3 h-5 bg-white/40 rounded-sm"></div>
+                    </div>
+                    <div class="absolute right-3 md:right-8 top-0 bottom-0 w-6 flex flex-col justify-around opacity-20 pointer-events-none items-end">
+                        <div class="w-3 h-5 bg-white/40 rounded-sm"></div><div class="w-3 h-5 bg-white/40 rounded-sm"></div><div class="w-3 h-5 bg-white/40 rounded-sm"></div><div class="w-3 h-5 bg-white/40 rounded-sm"></div><div class="w-3 h-5 bg-white/40 rounded-sm"></div><div class="w-3 h-5 bg-white/40 rounded-sm"></div><div class="w-3 h-5 bg-white/40 rounded-sm"></div><div class="w-3 h-5 bg-white/40 rounded-sm"></div>
+                    </div>
+
+                    <div class="text-center mb-6 relative z-20">
+                        <p class="text-red-500 text-xs font-bold uppercase tracking-[0.3em] mb-1">Hollywood Movie Credits</p>
+                        <h2 class="text-2xl md:text-4xl font-black uppercase text-white tracking-[0.25em] drop-shadow-[0_0_20px_rgba(220,38,38,0.9)]">
+                            Cuốn Phim Chế Tác
+                        </h2>
+                        <p class="text-gray-400 text-xs uppercase tracking-widest mt-1">Đoạn chiếu vinh danh những người kiến tạo — EDN Co.</p>
+                    </div>
+
+                    <!-- Khung cuộn văn bản điện ảnh (Credit Roll) -->
+                    <div class="h-[70vh] max-w-4xl mx-auto relative overflow-hidden">
+                        <!-- Gradient che mờ trên và dưới -->
+                        <div class="absolute top-0 inset-x-0 h-32 bg-gradient-to-b from-black via-black/85 to-transparent z-10 pointer-events-none"></div>
+                        <div class="absolute bottom-0 inset-x-0 h-32 bg-gradient-to-t from-black via-black/85 to-transparent z-10 pointer-events-none"></div>
+
+                        <!-- Chữ cuộn điện ảnh 2 cột (Left: Tên người, Right: Nhiệm vụ chi tiết) -->
+                        <div class="animate-credit-roll w-full cursor-default">
+                            <div class="text-center mb-16">
+                                <img src="assets/img/logo-crest.png" alt="Logo" class="w-20 h-20 mx-auto mb-4 rounded-full border border-gray-700 opacity-90 shadow-[0_0_25px_rgba(220,38,38,0.6)]">
+                                <h3 class="text-xl text-white font-black uppercase tracking-[0.4em]">MA SÓI: MILLERS HOLLOW</h3>
+                                <p class="text-red-500 text-xs uppercase tracking-widest mt-1 font-bold">Bản Web Cardless Đỉnh Cao</p>
+                            </div>
+
+                            <div class="space-y-16 max-w-3xl mx-auto px-4">
+                                <!-- 1. NGUYỄN THANH DƯƠNG -->
+                                <div class="grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-8 items-start border-b border-gray-900/60 pb-12">
+                                    <div class="md:col-span-5 md:text-right">
+                                        <h4 class="text-xl md:text-2xl text-white font-black uppercase tracking-wider">Nguyễn Thanh Dương</h4>
+                                        <p class="text-red-500 text-xs font-bold uppercase tracking-widest mt-1">Cố Vấn Sáng Tạo (Adviser)</p>
+                                        <p class="text-gray-500 text-[11px] uppercase tracking-wider">Game Concept & Creative Adviser</p>
+                                    </div>
+                                    <div class="md:col-span-7 text-left border-l-0 md:border-l-2 md:border-red-900/50 md:pl-8 space-y-2">
+                                        <div class="text-gray-300 text-xs leading-relaxed flex items-start gap-2">
+                                            <i class="fa-solid fa-star text-red-500 text-[10px] mt-1 flex-shrink-0"></i>
+                                            <span><strong>Khởi xướng & Định hình ý tưởng:</strong> Người lên gợi ý ban đầu, đề xuất mô hình chơi Ma Sói SaaS không cần thẻ bài vật lý.</span>
+                                        </div>
+                                        <div class="text-gray-300 text-xs leading-relaxed flex items-start gap-2">
+                                            <i class="fa-solid fa-star text-red-500 text-[10px] mt-1 flex-shrink-0"></i>
+                                            <span><strong>Cố vấn hệ thống luật:</strong> Tham vấn xây dựng cơ chế vòng lặp ngày/đêm, phân chia năng lực và đảm bảo tính cân bằng giữa các phe phái.</span>
+                                        </div>
+                                        <div class="text-gray-300 text-xs leading-relaxed flex items-start gap-2">
+                                            <i class="fa-solid fa-star text-red-500 text-[10px] mt-1 flex-shrink-0"></i>
+                                            <span><strong>Định hướng kịch bản & Truyền thuyết:</strong> Đóng góp ý tưởng cốt truyện ngôi làng Millers Hollow và bối cảnh các vai trò ma quái.</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- 2. LÊ THÀNH ĐẠO -->
+                                <div class="grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-8 items-start border-b border-gray-900/60 pb-12">
+                                    <div class="md:col-span-5 md:text-right">
+                                        <h4 class="text-xl md:text-2xl text-white font-black uppercase tracking-wider">Lê Thành Đạo</h4>
+                                        <p class="text-blue-400 text-xs font-bold uppercase tracking-widest mt-1">Lập Trình Viên (Lead DEV)</p>
+                                        <p class="text-gray-500 text-[11px] uppercase tracking-wider">System Architect & Core Engineer</p>
+                                    </div>
+                                    <div class="md:col-span-7 text-left border-l-0 md:border-l-2 md:border-blue-900/50 md:pl-8 space-y-2">
+                                        <div class="text-gray-300 text-xs leading-relaxed flex items-start gap-2">
+                                            <i class="fa-solid fa-code text-blue-400 text-[10px] mt-1 flex-shrink-0"></i>
+                                            <span><strong>Kiến trúc hệ thống phòng đấu:</strong> Triển khai máy chủ WebSocket xử lý sự kiện thời gian thực cho hàng trăm người chơi đồng thời.</span>
+                                        </div>
+                                        <div class="text-gray-300 text-xs leading-relaxed flex items-start gap-2">
+                                            <i class="fa-solid fa-code text-blue-400 text-[10px] mt-1 flex-shrink-0"></i>
+                                            <span><strong>Bộ máy Quản Trò tự động:</strong> Lập trình thuật toán phân phối vai trò ngẫu nhiên, tính toán logic soi/cứu/giết và đếm phiếu vote chính xác 100%.</span>
+                                        </div>
+                                        <div class="text-gray-300 text-xs leading-relaxed flex items-start gap-2">
+                                            <i class="fa-solid fa-code text-blue-400 text-[10px] mt-1 flex-shrink-0"></i>
+                                            <span><strong>Tối ưu hóa độ trễ & Bảo mật:</strong> Mã hóa thông tin vai trò ban đêm, chống rò rỉ dữ liệu và tích hợp xác thực SSO JChat mượt mà.</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- 3. LÊ MINH KHOA -->
+                                <div class="grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-8 items-start border-b border-gray-900/60 pb-12">
+                                    <div class="md:col-span-5 md:text-right">
+                                        <h4 class="text-xl md:text-2xl text-white font-black uppercase tracking-wider">Lê Minh Khoa</h4>
+                                        <p class="text-purple-400 text-xs font-bold uppercase tracking-widest mt-1">Thiết Kế UI/UX (Lead Designer)</p>
+                                        <p class="text-gray-500 text-[11px] uppercase tracking-wider">Art Director & UX Mastermind</p>
+                                    </div>
+                                    <div class="md:col-span-7 text-left border-l-0 md:border-l-2 md:border-purple-900/50 md:pl-8 space-y-2">
+                                        <div class="text-gray-300 text-xs leading-relaxed flex items-start gap-2">
+                                            <i class="fa-solid fa-paintbrush text-purple-400 text-[10px] mt-1 flex-shrink-0"></i>
+                                            <span><strong>Ngôn ngữ thị giác Dark Fantasy:</strong> Sáng tạo phong cách thiết kế u ám, ma mị, phối màu trăng máu và bóng đêm huyền bí.</span>
+                                        </div>
+                                        <div class="text-gray-300 text-xs leading-relaxed flex items-start gap-2">
+                                            <i class="fa-solid fa-paintbrush text-purple-400 text-[10px] mt-1 flex-shrink-0"></i>
+                                            <span><strong>Hệ thống 19+ lá bài lật 3D:</strong> Kiến tạo trải nghiệm lật mở thẻ bài chân thực, popup năng lực chi tiết và bố cục tối ưu trực quan.</span>
+                                        </div>
+                                        <div class="text-gray-300 text-xs leading-relaxed flex items-start gap-2">
+                                            <i class="fa-solid fa-paintbrush text-purple-400 text-[10px] mt-1 flex-shrink-0"></i>
+                                            <span><strong>Hoạt ảnh sương mù & Trăng thở:</strong> Xây dựng hiệu ứng chuyển động đa tầng, đưa người chơi vào trải nghiệm đậm chất điện ảnh.</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- 4. LÂM ĐÀM -->
+                                <div class="grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-8 items-start border-b border-gray-900/60 pb-12">
+                                    <div class="md:col-span-5 md:text-right">
+                                        <h4 class="text-xl md:text-2xl text-white font-black uppercase tracking-wider">Lâm Đàm</h4>
+                                        <p class="text-green-400 text-xs font-bold uppercase tracking-widest mt-1">Chuyên Viên QA/QC & Playtest</p>
+                                        <p class="text-gray-500 text-[11px] uppercase tracking-wider">Quality Assurance & Balance Testing</p>
+                                    </div>
+                                    <div class="md:col-span-7 text-left border-l-0 md:border-l-2 md:border-green-900/50 md:pl-8 space-y-2">
+                                        <div class="text-gray-300 text-xs leading-relaxed flex items-start gap-2">
+                                            <i class="fa-solid fa-shield-halved text-green-400 text-[10px] mt-1 flex-shrink-0"></i>
+                                            <span><strong>Kiểm thử chức năng toàn diện:</strong> Săn lùng lỗi phát sinh (Bug hunting), kiểm tra từng tình huống xung đột vai trò phức tạp trong đêm.</span>
+                                        </div>
+                                        <div class="text-gray-300 text-xs leading-relaxed flex items-start gap-2">
+                                            <i class="fa-solid fa-shield-halved text-green-400 text-[10px] mt-1 flex-shrink-0"></i>
+                                            <span><strong>Thử nghiệm cân bằng tỷ lệ thắng:</strong> Tổ chức các đợt playtest nội bộ để tinh chỉnh xác suất chiến thắng công bằng giữa Phe Dân và Phe Sói.</span>
+                                        </div>
+                                        <div class="text-gray-300 text-xs leading-relaxed flex items-start gap-2">
+                                            <i class="fa-solid fa-shield-halved text-green-400 text-[10px] mt-1 flex-shrink-0"></i>
+                                            <span><strong>Bảo vệ trải nghiệm người chơi:</strong> Giám sát hiệu năng thực tế trên nhiều dòng điện thoại, đảm bảo ván đấu diễn ra trơn tru không giật lag.</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- 5. EDN CO.,LTD -->
+                                <div class="grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-8 items-center pt-4">
+                                    <div class="md:col-span-5 md:text-right">
+                                        <h4 class="text-xl md:text-2xl text-red-500 font-black uppercase tracking-[0.2em]">EDN CO.,LTD</h4>
+                                        <p class="text-gray-400 text-xs font-bold uppercase tracking-widest mt-1">Đơn Vị Sản Xuất & Phát Hành</p>
+                                    </div>
+                                    <div class="md:col-span-7 text-left border-l-0 md:border-l-2 md:border-red-900/50 md:pl-8 text-gray-400 text-xs leading-relaxed">
+                                        Đơn vị chủ quản điều hành, tài trợ nghiên cứu phát triển và nắm giữ bản quyền thương hiệu Ma Sói Web SaaS độc quyền.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+    </main>
+
+    <!-- FOOTER MỎNG CHUẨN XỊN XÒ -->
+    <footer class="bg-black py-8 border-t border-gray-900/60 relative z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="flex items-center gap-3">
+                <img src="assets/img/logo-crest.png" alt="Logo Ma Sói" class="w-9 h-9 rounded-full border border-gray-800">
+                <div class="text-left leading-none">
+                    <span class="font-black text-[18px] tracking-wider text-white">MA SÓI<span class="text-red-600">.</span></span>
+                    <span class="text-[10px] text-gray-500 block uppercase tracking-widest">EDN Co.,Ltd</span>
+                </div>
+            </div>
+
+            <div class="text-gray-500 text-xs tracking-wider text-center">
+                Copyright © 2026 EDN Co.,Ltd. All Rights Reserved.
+            </div>
+
+            <div class="flex items-center gap-4">
+                <a href="#" class="w-8 h-8 rounded-full bg-gray-900 text-gray-400 hover:text-white hover:bg-red-700 flex items-center justify-center transition">
+                    <i class="fa-brands fa-facebook-f text-xs"></i>
+                </a>
+                <a href="#" class="w-8 h-8 rounded-full bg-gray-900 text-gray-400 hover:text-white hover:bg-red-700 flex items-center justify-center transition">
+                    <i class="fa-brands fa-discord text-xs"></i>
+                </a>
+                <a href="#" class="w-8 h-8 rounded-full bg-gray-900 text-gray-400 hover:text-white hover:bg-red-700 flex items-center justify-center transition">
+                    <i class="fa-brands fa-youtube text-xs"></i>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- MODAL POPUP CHI TIẾT NHÂN VẬT -->
+    <div id="roleModal" class="fixed inset-0 z-[100] hidden items-center justify-center p-4">
+        <!-- Backdrop -->
+        <div class="absolute inset-0 bg-black/85 backdrop-blur-md" onclick="closeCharacterModal()"></div>
+        
+        <!-- Modal Card -->
+        <div class="relative bg-[#0a0a0f] border-2 border-red-900/80 rounded-2xl max-w-lg w-full overflow-hidden shadow-[0_0_50px_rgba(220,38,38,0.4)] z-10 transform transition-all duration-300">
+            <!-- Nút đóng -->
+            <button onclick="closeCharacterModal()" class="absolute top-4 right-4 w-9 h-9 rounded-full bg-black/60 border border-gray-700 text-gray-400 hover:text-white hover:border-red-500 flex items-center justify-center z-20 transition">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+            <!-- Ảnh thẻ bài header -->
+            <div class="h-60 relative overflow-hidden border-b border-gray-800">
+                <img id="modalRoleImg" src="" alt="" class="w-full h-full object-cover">
+                <div class="absolute inset-0 bg-gradient-to-t from-[#0a0a0f] via-transparent to-black/40"></div>
+                
+                <!-- Badge phe phái góc dưới -->
+                <div class="absolute bottom-4 left-6 z-10">
+                    <span id="modalRoleFaction" class="px-3 py-1 rounded text-xs uppercase font-bold tracking-wider inline-block"></span>
+                </div>
+            </div>
+
+            <!-- Nội dung chi tiết chức năng -->
+            <div class="p-6 md:p-8 text-left">
+                <h3 id="modalRoleName" class="text-3xl font-black text-white uppercase tracking-wider mb-1"></h3>
+                <p id="modalRoleEn" class="text-red-500 text-xs font-bold uppercase tracking-widest mb-6"></p>
+                
+                <div class="bg-black/60 border border-gray-800/80 p-5 rounded-xl mb-6">
+                    <h5 class="text-xs uppercase font-bold text-gray-400 tracking-wider mb-2 flex items-center gap-2">
+                        <i class="fa-solid fa-wand-magic-sparkles text-red-500"></i> Năng Lực & Kỹ Năng:
+                    </h5>
+                    <p id="modalRoleDesc" class="text-gray-300 text-sm leading-relaxed"></p>
+                </div>
+
+                <div class="text-center">
+                    <button onclick="closeCharacterModal()" class="w-full bg-red-700 hover:bg-red-600 text-white font-bold py-3 rounded text-xs uppercase tracking-widest transition">
+                        Đã Hiểu Chức Năng
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SCRIPT CHÍNH -->
+    <script type="module" src="/main.js"></script>
+</body>
+</html>
